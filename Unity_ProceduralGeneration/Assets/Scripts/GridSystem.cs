@@ -125,6 +125,9 @@ public class GridSystem : MonoBehaviour
         meshFilter.mesh = mesh;
 
         MeshRenderer meshRenderer = gameObject.AddComponent<MeshRenderer>();
+
+        MeshCollider meshCollider = gameObject.AddComponent<MeshCollider>();
+        meshCollider.sharedMesh = mesh;
     }
 
     private void DrawTexture(Cell[,] grid)
@@ -276,7 +279,7 @@ public class GridSystem : MonoBehaviour
     {
         float[,] noiseMap = new float[_size, _size];
 
-        (float xOffset, float yOffset) = (Random.Range(-10000f, 10000f), Random.Range(-10000f, 10000f));
+        (float xOffset, float yOffset) = (UnityEngine.Random.Range(-10000f, 10000f), UnityEngine.Random.Range(-10000f, 10000f));
 
         for (int y = 0; y < _size; y++)
         {
@@ -296,17 +299,17 @@ public class GridSystem : MonoBehaviour
 
                 if (!cell.IsWater)
                 {
-                    float v = Random.Range(0f, _treeDensity);
+                    float v = UnityEngine.Random.Range(0f, _treeDensity);
 
                     if (noiseMap[x, y] < v)
                     {
                         //Its a tree
 
-                        GameObject treePrefab = _treePrefabs[Random.Range(0, _treePrefabs.Length)];
+                        GameObject treePrefab = _treePrefabs[UnityEngine.Random.Range(0, _treePrefabs.Length)];
                         GameObject tree = Instantiate(treePrefab, transform);
                         tree.transform.position = new Vector3(x, 0, y);
-                        tree.transform.rotation = Quaternion.Euler(0, Random.Range(0, 360f), 0);
-                        tree.transform.localScale = Vector3.one * Random.Range(.8f, 1.2f);
+                        tree.transform.rotation = Quaternion.Euler(0, UnityEngine.Random.Range(0, 360f), 0);
+                        tree.transform.localScale = Vector3.one * UnityEngine.Random.Range(.8f, 1.2f);
                     }
                 }
             }
@@ -317,7 +320,7 @@ public class GridSystem : MonoBehaviour
     {
         float[,] noiseMap = new float[_size, _size];
 
-        (float xOffset, float yOffset) = (Random.Range(-10000f, 10000f), Random.Range(-10000f, 10000f));
+        (float xOffset, float yOffset) = (UnityEngine.Random.Range(-10000f, 10000f), UnityEngine.Random.Range(-10000f, 10000f));
 
         for (int y = 0; y < _size; y++)
         {
@@ -337,17 +340,17 @@ public class GridSystem : MonoBehaviour
 
                 if (!cell.IsWater)
                 {
-                    float v = Random.Range(0f, _plantDensity);
+                    float v = UnityEngine.Random.Range(0f, _plantDensity);
 
                     if (noiseMap[x, y] < v)
                     {
                         //Its a plant
 
-                        GameObject plantPrefab = _plantPrefabs[Random.Range(0, _plantPrefabs.Length)];
+                        GameObject plantPrefab = _plantPrefabs[UnityEngine.Random.Range(0, _plantPrefabs.Length)];
                         GameObject plant = Instantiate(plantPrefab, transform);
                         plant.transform.position = new Vector3(x, 0, y);
-                        plant.transform.rotation = Quaternion.Euler(0, Random.Range(0, 360f), 0);
-                        plant.transform.localScale = Vector3.one * Random.Range(.8f, 1.2f);
+                        plant.transform.rotation = Quaternion.Euler(0, UnityEngine.Random.Range(0, 360f), 0);
+                        plant.transform.localScale = Vector3.one * UnityEngine.Random.Range(.8f, 1.2f);
                     }
                 }
             }
