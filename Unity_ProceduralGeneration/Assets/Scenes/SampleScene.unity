@@ -533,12 +533,12 @@ MonoBehaviour:
   _treePrefabs:
   - {fileID: 919132149155446097, guid: 70a19305ce085874a8c6fa1712221352, type: 3}
   - {fileID: 6200491160025657898, guid: 3d6ee73ce0cc2f34fb0943aee27b056a, type: 3}
-  _treeScale: 0.03
-  _treeDensity: 0.4
+  _treeNoiseScale: 0.3
+  _treeDensity: 0.35
   _plantPrefabs:
   - {fileID: 9174778942950148459, guid: cb8023970bbd62147ba1b145685c0a02, type: 3}
-  _plantScale: 0.5
-  _plantDensity: 0.4
+  _plantNoiseScale: 0.5
+  _plantDensity: 0.5
 --- !u!4 &1247984848
 Transform:
   m_ObjectHideFlags: 0

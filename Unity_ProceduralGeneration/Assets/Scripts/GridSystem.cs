@@ -12,12 +12,12 @@ public class GridSystem : MonoBehaviour
 
     [Header("Trees")]
     [SerializeField] private GameObject[] _treePrefabs;
-    [SerializeField] private float _treeScale = .05f;
+    [SerializeField] private float _treeNoiseScale = .05f;
     [SerializeField] private float _treeDensity = .5f;
 
     [Header("Plants")]
     [SerializeField] private GameObject[] _plantPrefabs;
-    [SerializeField] private float _plantScale = .05f;
+    [SerializeField] private float _plantNoiseScale = .05f;
     [SerializeField] private float _plantDensity = .5f;
 
     private Cell[,] _grid;
@@ -286,7 +286,7 @@ public class GridSystem : MonoBehaviour
             for (int x = 0; x < _size; x++)
             {
                 //PerlinNoise is a noise map
-                float noiseValue = Mathf.PerlinNoise(x * _treeScale + xOffset, y * _treeScale + yOffset);
+                float noiseValue = Mathf.PerlinNoise(x * _treeNoiseScale + xOffset, y * _treeNoiseScale + yOffset);
                 noiseMap[x, y] = noiseValue;
             }
         }
@@ -315,7 +315,7 @@ public class GridSystem : MonoBehaviour
             }
         }
     }
-
+                        
     private void GeneratePlants(Cell[,] grid)
     {
         float[,] noiseMap = new float[_size, _size];
@@ -327,7 +327,7 @@ public class GridSystem : MonoBehaviour
             for (int x = 0; x < _size; x++)
             {
                 //PerlinNoise is a noise map
-                float noiseValue = Mathf.PerlinNoise(x * _plantScale + xOffset, y * _plantScale + yOffset);
+                float noiseValue = Mathf.PerlinNoise(x * _plantNoiseScale + xOffset, y * _plantNoiseScale + yOffset);
                 noiseMap[x, y] = noiseValue;
             }
         }
